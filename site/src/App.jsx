@@ -86,6 +86,9 @@ function App() {
             src={homeEnsemble}
             alt="Tuba section performing on stage"
             className="hero-bg-image"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
           />
           <div className="hero-overlay" />
           <div className="hero-copy hero-centered">
@@ -131,6 +134,8 @@ function App() {
                 src={homeHeadshot}
                 alt="John Patrick Armenia-Harding in professional attire"
                 className="bio-image"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -154,7 +159,13 @@ function App() {
         </section>
 
         <section id="experience" className="image-overlay-section">
-          <img src={teachingTwo} alt="John in classroom during instruction" className="section-bg-image bw-image" />
+          <img
+            src={teachingTwo}
+            alt="John in classroom during instruction"
+            className="section-bg-image bw-image"
+            loading="lazy"
+            decoding="async"
+          />
           <div className="section-bg-overlay" />
           <div className="overlay-content overlay-prose">
             <p className="eyebrow">Experience and About</p>
@@ -302,6 +313,7 @@ function App() {
                     <iframe
                       src={video.embedUrl}
                       title={video.title}
+                      loading="lazy"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       referrerPolicy="strict-origin-when-cross-origin"
                       allowFullScreen
@@ -314,7 +326,7 @@ function App() {
               className="btn btn-primary videos-all-btn"
               href="https://www.youtube.com/@jparmeniatuba/videos"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               All Videos
             </a>
@@ -322,7 +334,13 @@ function App() {
         </section>
 
         <section id="contact" className="image-overlay-section contact-overlay-section">
-          <img src={teachingOne} alt="John leading rehearsal with accompanist and student observers" className="section-bg-image contact-bg-image" />
+          <img
+            src={teachingOne}
+            alt="John leading rehearsal with accompanist and student observers"
+            className="section-bg-image contact-bg-image"
+            loading="lazy"
+            decoding="async"
+          />
           <div className="section-bg-overlay" />
           <div className="overlay-content contact-overlay-content">
             <p className="statement-body">
