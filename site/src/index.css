@@ -1,0 +1,45 @@
+:root {
+  --color-bg: #0b0c10;
+  --color-surface: #13151a;
+  --color-border: #2a2d35;
+  --color-text: #f6f2e7;
+  --color-text-muted: #c9c2b0;
+  --color-accent: #d6b15f;
+  --font-heading: 'Playfair Display', 'Times New Roman', serif;
+  --font-body: 'Inter', 'Segoe UI', Arial, sans-serif;
+  --shadow-elevated:
+    0 24px 56px rgba(0, 0, 0, 0.45),
+    0 4px 16px rgba(214, 177, 95, 0.18);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(214, 177, 95, 0.12), transparent 40%),
+    radial-gradient(circle at 90% 0%, rgba(214, 177, 95, 0.08), transparent 35%),
+    linear-gradient(165deg, #07080b, #101116 40%, #0a0b0f);
+  line-height: 1.6;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+#root {
+  min-height: 100vh;
+}

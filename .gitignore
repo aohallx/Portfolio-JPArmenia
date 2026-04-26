@@ -1,0 +1,4 @@
+.cursor/
+site/node_modules/
+site/dist/
+site/dist-ssr/
