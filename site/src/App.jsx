@@ -3,9 +3,30 @@ import homeEnsemble from './assets/images/tuba-ensemble-home.png'
 import homeHeadshot from './assets/images/headshot-home.png'
 import teachingOne from './assets/images/teaching-1.png'
 import teachingTwo from './assets/images/teaching-2.png'
+import teachingPhilosophyBg from './assets/images/teaching-philosophy-bg.png'
 import resumePreviewUpdated from './assets/images/resume-preview-updated.png'
 import resumePdf from './assets/resume/john-patrick-armenia-harding-resume.pdf'
 import './App.css'
+
+const contactCarouselSlides = [
+  {
+    src: homeEnsemble,
+    alt: 'Tuba section performing on stage',
+  },
+  {
+    src: teachingTwo,
+    alt: 'John in classroom during instruction',
+  },
+  {
+    src: teachingPhilosophyBg,
+    alt: 'John Patrick Armenia-Harding with tuba outdoors in professional attire',
+    objectPosition: 'center 20%',
+  },
+  {
+    src: teachingOne,
+    alt: 'John leading rehearsal with accompanist and student observers',
+  },
+]
 
 const featuredVideos = [
   {
@@ -43,6 +64,9 @@ const featuredVideos = [
 function App() {
   const statementRef = useRef(null)
   const [statementVisible, setStatementVisible] = useState(false)
+  const [contactSlideIndex, setContactSlideIndex] = useState(
+    contactCarouselSlides.length - 1,
+  )
 
   useEffect(() => {
     const element = statementRef.current
@@ -109,7 +133,9 @@ function App() {
                 student teaching at Caroline G. Atkinson Intermediate School in Freeport, he has
                 prepared 5th and 6th grade students for the{' '}
                 <em>NYSSMA Solo Evaluation Festival</em>, planned weekly sectionals, and led
-                structured full-band warm-up sequences.
+                structured full-band warm-up sequences. Since April 2026, he has continued his
+                student teaching at <strong>Baldwin High School</strong>, extending his field experience
+                into a secondary school setting.
               </p>
               <p>
                 In addition to classroom teaching, John has provided private instrumental instruction
@@ -175,12 +201,14 @@ function App() {
               completing his <em>Bachelor of Science in Music Education</em> and preparing for{' '}
               <strong>New York State Initial Certification in Music, PreK-12</strong>. He is an
               active performer and educator whose classroom approach blends high expectations with
-              student-centered support. During his student teaching placement at Caroline G. Atkinson
-              Intermediate School in Freeport, he prepared 5th and 6th grade band students for the
-              {' '}<em className="gold-emphasis">NYSSMA Solo Evaluation Festival</em>, planned weekly
-              sectionals, and led
-              structured full-ensemble warm-up sequences to strengthen tone, timing, and rehearsal
-              discipline.
+              student-centered support. His student teaching began at Caroline G. Atkinson
+              Intermediate School in Freeport, where he prepared 5th and 6th grade band students for
+              the {' '}
+              <em className="gold-emphasis">NYSSMA Solo Evaluation Festival</em>, planned weekly
+              sectionals, and led structured full-ensemble warm-up sequences to strengthen tone,
+              timing, and rehearsal discipline. Since April 2026, he has been completing his
+              secondary placement at <strong className="gold-emphasis">Baldwin High School</strong>,
+              building on that foundation in a high school music program.
             </p>
             <p>
               In addition to school placements, John has provided private instrumental instruction
@@ -216,15 +244,33 @@ function App() {
                   <p className="impact-item-title">Student Outcomes</p>
                   <p className="impact-item-subtitle">NYSSMA-aligned instruction supporting All-County recognition.</p>
                 </div>
+                <div className="impact-item">
+                  <p className="impact-item-title">Field Placements</p>
+                  <p className="impact-item-subtitle">
+                    Intermediate band student teaching in Freeport; secondary placement at Baldwin
+                    High School since April 2026.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="professional-documents" className="section-block teaching-docs-section">
-          <div className="teaching-docs-wrap">
+        <section
+          id="professional-documents"
+          className="section-block teaching-docs-section teaching-docs-with-bg"
+        >
+          <img
+            src={teachingPhilosophyBg}
+            alt="John Patrick Armenia-Harding with tuba outdoors in professional attire"
+            className="teaching-docs-bg-image"
+            loading="lazy"
+            decoding="async"
+          />
+          <div className="teaching-docs-bg-overlay" aria-hidden="true" />
+          <div className="teaching-docs-wrap teaching-docs-wrap--front">
             <p className="eyebrow">Professional Documents</p>
-            <h2>Teaching Philosophy and Professional Recommendation</h2>
+            <h2>Teaching Philosophy and Professional Recommendations</h2>
             <div className="teaching-docs-grid">
               <article className="teaching-doc-card">
                 <h3>Teaching Philosophy</h3>
@@ -270,19 +316,35 @@ function App() {
                 </p>
               </article>
             </div>
-            <article className="teaching-doc-card recommendation-bottom">
-              <h3>Recommendation</h3>
-              <blockquote className="recommendation-quote">
-                &ldquo;John is a highly positive, professional, and motivated teacher who I
-                believe will be a significant asset to any school&apos;s music program. He is
-                well-equipped to handle the challenges inherent in music education. Because of
-                this I have no hesitation in recommending John Armenia for the band opening in
-                your district.&rdquo;
-              </blockquote>
-              <p className="recommendation-meta">
-                Adam Rubin, Band Director, Caroline G. Atkinson Intermediate School
-              </p>
-            </article>
+            <div className="recommendations-stack">
+              <article className="teaching-doc-card">
+                <h3>Band director — student teaching</h3>
+                <blockquote className="recommendation-quote">
+                  &ldquo;John is a highly positive, professional, and motivated teacher who I
+                  believe will be a significant asset to any school&apos;s music program. He is
+                  well-equipped to handle the challenges inherent in music education. Because of
+                  this I have no hesitation in recommending John Armenia for the band opening in
+                  your district.&rdquo;
+                </blockquote>
+                <p className="recommendation-meta">
+                  Adam Rubin, Band Director, Caroline G. Atkinson Intermediate School
+                </p>
+              </article>
+              <article className="teaching-doc-card">
+                <h3>Special education — SPED 102 (Fall 2025)</h3>
+                <blockquote className="recommendation-quote">
+                  &ldquo;What stands out most about John is his ability to bring joy and
+                  accessibility to music for all students. He understands that music is a powerful
+                  tool for connection, expression, and inclusion, and he is committed to ensuring
+                  that every student—regardless of ability—has the opportunity to participate and
+                  succeed.&rdquo;
+                </blockquote>
+                <p className="recommendation-meta recommendation-meta-prose">
+                  Barbara Schwartz, M.S., Ed.S., Adjunct Professor/Supervisor, Hofstra University,
+                  School of Education, Special Education
+                </p>
+              </article>
+            </div>
           </div>
         </section>
 
@@ -334,14 +396,55 @@ function App() {
         </section>
 
         <section id="contact" className="image-overlay-section contact-overlay-section">
-          <img
-            src={teachingOne}
-            alt="John leading rehearsal with accompanist and student observers"
-            className="section-bg-image contact-bg-image"
-            loading="lazy"
-            decoding="async"
-          />
-          <div className="section-bg-overlay" />
+          <div
+            id="contact-carousel"
+            className="contact-carousel-bg"
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="Portfolio photos"
+          >
+            {contactCarouselSlides.map((slide, index) => (
+              <img
+                key={slide.src}
+                src={slide.src}
+                alt={index === contactSlideIndex ? slide.alt : ''}
+                aria-hidden={index !== contactSlideIndex}
+                className={`section-bg-image contact-bg-image contact-carousel-slide${
+                  index === contactSlideIndex ? ' is-active' : ''
+                }`}
+                style={slide.objectPosition ? { objectPosition: slide.objectPosition } : undefined}
+                loading={index === contactSlideIndex ? 'eager' : 'lazy'}
+                decoding="async"
+              />
+            ))}
+            <span className="visually-hidden" aria-live="polite">
+              Image {contactSlideIndex + 1} of {contactCarouselSlides.length}:{' '}
+              {contactCarouselSlides[contactSlideIndex].alt}
+            </span>
+          </div>
+          <div className="section-bg-overlay contact-carousel-overlay" />
+          <button
+            type="button"
+            className="contact-carousel-btn contact-carousel-btn--prev"
+            aria-label="Previous portfolio photo"
+            onClick={() =>
+              setContactSlideIndex(
+                (i) => (i - 1 + contactCarouselSlides.length) % contactCarouselSlides.length,
+              )
+            }
+          >
+            <span aria-hidden="true">‹</span>
+          </button>
+          <button
+            type="button"
+            className="contact-carousel-btn contact-carousel-btn--next"
+            aria-label="Next portfolio photo"
+            onClick={() =>
+              setContactSlideIndex((i) => (i + 1) % contactCarouselSlides.length)
+            }
+          >
+            <span aria-hidden="true">›</span>
+          </button>
           <div className="overlay-content contact-overlay-content">
             <p className="statement-body">
               I strive to build ensembles where discipline, musicianship, and confidence grow
